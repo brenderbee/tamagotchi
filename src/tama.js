@@ -22,7 +22,7 @@ class Tamagotchi {
 
   setSleep() {
     setInterval(() => {
-      this.playLevel--;
+      this.sleepLevel--;
     }, 1000);
   }
 
@@ -48,12 +48,26 @@ class Tamagotchi {
     }
   }
 
+  didItDieNeglect() {
+    if (this.playLevel > 0) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
   feed() {
     this.foodLevel += 10;
   }
 
   play() {
     this.foodLevel += 5;
+  }
+
+  sleeping() {
+    setInterval(()=> {
+      this.sleepLevel = 60;
+    }, 60000);
   }
 }
 
